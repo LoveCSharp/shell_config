@@ -1,12 +1,12 @@
-# starship init nu | save -f $"($nu.cache-dir)/starship.nu"
+# starship init nu | save -f $"($nu.default-config-dir)/tools/starship.nu"
 source $"($nu.default-config-dir)/tools/starship.nu"
-# carapace _carapace nushell | save -f $"($nu.cache-dir)/carapace.nu"
+# carapace _carapace nushell | save -f $"($nu.default-config-dir)/tools/carapace.nu"
 source $"($nu.default-config-dir)/tools/carapace.nu"
-# fzf --nushell | save -f $"($nu.cache-dir)/fzf.nu"
+# fzf --nushell | save -f $"($nu.default-config-dir)/tools/fzf.nu"
 source $"($nu.default-config-dir)/tools/fzf.nu"
-# atuin init nu | save -f $"($nu.cache-dir)/atuin.nu"
+# atuin init nu | save -f $"($nu.default-config-dir)/tools/atuin.nu"
 source $"($nu.default-config-dir)/tools/atuin.nu"
-# zoxide init nushell | save -f $"($nu.cache-dir)/zoxide.nu"
+# zoxide init nushell | save -f $"($nu.default-config-dir)/tools/zoxide.nu"
 source $"($nu.default-config-dir)/tools/zoxide.nu"
 
 
