@@ -113,6 +113,9 @@ $env._ZO_ECHO = 1
 ## pi 配置
 let PI_STR_LOC = $"($DEV_STR_LOC)/ai/pi"
 $env.PI_CODING_AGENT_DIR = $"($PI_STR_LOC)/config"   # 配置
+## cc-switch 配置
+let CC_SWITCH_STR_LOC = $"($DEV_STR_LOC)/ai/cc-switch"
+$env.CC_SWITCH_CONFIG_DIR = $"($CC_SWITCH_STR_LOC)/config"   # 配置
 
 # PATH 去重
 $env.PATH = $env.PATH | uniq

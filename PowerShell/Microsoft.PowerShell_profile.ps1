@@ -136,8 +136,10 @@ $PI_STR_LOC = "$DEV_STR_LOC\ai\pi"
 $env:PI_CODING_AGENT_DIR = "$PI_STR_LOC\config"   # 配置
 ## codex 配置
 $CODEX_STR_LOC = "$DEV_STR_LOC\ai\codex"
-$env:CODEX_HOME = $CODEX_STR_LOC   # 配置
-
+$env:CODEX_HOME = $CODEX_STR_LOC
+## cc-switch 配置
+$CC_SWITCH_STR_LOC = "$DEV_STR_LOC\ai\cc-switch"
+$env:CC_SWITCH_CONFIG_DIR = "$CC_SWITCH_STR_LOC\config"
 
 ## rtk 配置
 $RTK_STR_LOC = "$DEV_STR_LOC\ai\rtk"
