@@ -134,7 +134,11 @@ $OPENCODE_STR_LOC = "$DEV_STR_LOC\ai\opencode"
 ## pi 配置
 $PI_STR_LOC = "$DEV_STR_LOC\ai\pi"
 $env:PI_CODING_AGENT_DIR = "$PI_STR_LOC\config"   # 配置
-#$env:PI_PACKAGE_DIR = "$PI_STR_LOC\packages"      # 扩展/包 设了themes会从这个位置加载，实际就在pi根目录，反而无法运行
+## codex 配置
+$CODEX_STR_LOC = "$DEV_STR_LOC\ai\codex"
+$env:CODEX_HOME = $CODEX_STR_LOC   # 配置
+
+
 ## rtk 配置
 $RTK_STR_LOC = "$DEV_STR_LOC\ai\rtk"
 
