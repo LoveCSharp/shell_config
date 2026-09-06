@@ -102,7 +102,7 @@ let CLI_STR_LOC = $"($DEV_STR_LOC)/cli"
 let ZELLIJ_STR_LOC = $"($CLI_STR_LOC)/zellij"
 $env.ZELLIJ_CONFIG_DIR = $"($ZELLIJ_STR_LOC)/config_nu"
 ## atuin 配置
-let ATUIN_STR_LOC = $"($CLI_STR_LOC)/atuin"
+let ATUIN_STR_LOC = $"($CLI_STR_LOC)/atuin/atuin"
 $env.ATUIN_CONFIG_DIR = $"($ATUIN_STR_LOC)/config"
 ## zoxide 配置
 let ZOXIDE_STR_LOC = $"($CLI_STR_LOC)/zoxide"

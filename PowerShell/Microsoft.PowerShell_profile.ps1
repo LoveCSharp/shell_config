@@ -111,7 +111,7 @@ $OH_MY_POSH_STR_LOC = "$DEV_STR_LOC\cli\oh-my-posh"
 $env:OMP_CACHE_DIR = "$OH_MY_POSH_STR_LOC\cache"
 $env:POSH_THEMES_PATH = "$OH_MY_POSH_STR_LOC\themes"
 ## atuin 配置
-$ATUIN_STR_LOC = "$DEV_STR_LOC\cli\atuin"
+$ATUIN_STR_LOC = "$DEV_STR_LOC\cli\atuin\atuin"
 $env:ATUIN_CONFIG_DIR = "$ATUIN_STR_LOC\config"
 ## zoxide 配置
 $ZOXIDE_STR_LOC = "$DEV_STR_LOC\cli\zoxide"
