@@ -111,7 +111,7 @@ $OH_MY_POSH_STR_LOC = "$DEV_STR_LOC\cli\oh-my-posh"
 $env:OMP_CACHE_DIR = "$OH_MY_POSH_STR_LOC\cache"
 $env:POSH_THEMES_PATH = "$OH_MY_POSH_STR_LOC\themes"
 ## atuin 配置
-$ATUIN_STR_LOC = "$DEV_STR_LOC\cli\atuin\atuin"
+$ATUIN_STR_LOC = "$DEV_STR_LOC\cli\atuin"
 $env:ATUIN_CONFIG_DIR = "$ATUIN_STR_LOC\config"
 ## zoxide 配置
 $ZOXIDE_STR_LOC = "$DEV_STR_LOC\cli\zoxide"
@@ -146,7 +146,12 @@ $RTK_STR_LOC = "$DEV_STR_LOC\ai\rtk"
 
 # powershell 模块配置
 ## 安装模块
-$modulesNeedInstall = @("Terminal-Icons", "PSReadLine", "PSFzf", "PSCompletions")
+$modulesNeedInstall = @(
+	# "Terminal-Icons",
+	"PSReadLine",
+	"PSFzf"
+	#"PSCompletions"
+	)
 foreach ($m in $modulesNeedInstall) {
 	if (-not (Get-PSResource -Name $m -Scope CurrentUser)) {
         Install-PSResource $m -Scope CurrentUser
@@ -154,7 +159,7 @@ foreach ($m in $modulesNeedInstall) {
 }
 ## Terminal-Icons 配置
 ### 安装: Import-Module -Name Terminal-Icons
-Import-Module -Name Terminal-Icons
+# Import-Module -Name Terminal-Icons
 ## PSReadLine 配置
 ### 安装最新版powershell，自带的就可以，不需要安装
 Import-Module PSReadLine
@@ -165,32 +170,32 @@ Set-PSReadLineOption -PredictionViewStyle ListView		# 弹出根据历史与插�
 Set-PSReadLineKeyHandler Alt+/ MenuComplete				# 弹出自动补全列表快捷键设置
 ## PSCompletions 配置
 ### 安装: Install-Module PSCompletions
-Import-Module PSCompletions
+# Import-Module PSCompletions
 #### 要检查的补全列表
-$pscLibs = @(
-	"powershell", "zellij", "starship",
-	"fd", "rg", "eza", "zoxide", "fzf", "bat", "jq",
-	"git",
-	"fnm", "node", "npm",
-	"uv", "python", "pip",
-	"go",
-	"rustup", "rustc", "cargo",
-	"opencode"
-)
-$installedNames = @()
+# $pscLibs = @(
+# 	"powershell", "zellij", "starship",
+# 	"fd", "rg", "eza", "zoxide", "fzf", "bat", "jq",
+# 	"git",
+# 	"fnm", "node", "npm",
+# 	"uv", "python", "pip",
+# 	"go",
+# 	"rustup", "rustc", "cargo",
+# 	"opencode"
+# )
+# $installedNames = @()
 #### 循环批量安装补全
-$pscLibs | ForEach-Object {
-	$installed = psc list | Select-String -Pattern "Completion=$_" -SimpleMatch
-    if (-not $installed) {
-        psc add $_
-        $installedNames += $_
-    }
-}
+# $pscLibs | ForEach-Object {
+# 	$installed = psc list | Select-String -Pattern "Completion=$_" -SimpleMatch
+#     if (-not $installed) {
+#         psc add $_
+#         $installedNames += $_
+#     }
+# }
 #### 若有需要安装的补全，显示安装的补全
-if ($installedNames) {
-    Write-Host "PSCompletions本次自动安装的补全：$($installedNames -join ', ')" -ForegroundColor Green
-}
-Write-Host "PSCompletions加载的补全：$($pscLibs -join ', ')" -ForegroundColor Green
+# if ($installedNames) {
+#     Write-Host "PSCompletions本次自动安装的补全：$($installedNames -join ', ')" -ForegroundColor Green
+# }
+# Write-Host "PSCompletions加载的补全：$($pscLibs -join ', ')" -ForegroundColor Green
 ## PSFzf 配置
 ### 安装: Install-Module PSFzf
 Import-Module PSFzf
@@ -200,17 +205,17 @@ $env:FZF_DEFAULT_OPTS = "--layout reverse --border rounded"
 Set-PsFzfOption -PSReadlineChordReverseHistory Ctrl+R	# 历史命令搜索 小写r给了atuin
 Set-PsFzfOption -PSReadlineChordProvider Ctrl+t			# 文件搜索
 ### psc menu config enable_menu_enhance 0 手动设置，要更换1请自行执行
-$psc_enable_menu_enhance = psc menu config enable_menu_enhance
-if ($psc_enable_menu_enhance -eq 0) {
-	# 具体见：https://pscompletions.abgox.com/zh-cn/docs/tools/psfzf
-	# PSCompletions的外部补全由PSFzf处理
-	Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
-	# 260723 这个设置有问题 psc的补全会变成双引号的文本 暂时还是设成1
-}
-if ($psc_enable_menu_enhance -eq 1) {
-	# PSCompletions 和 PSFzf 自动协同，不清楚怎么个内部协同法，我暂时用0
-	Set-PsFzfOption -TabExpansion
-}
+# $psc_enable_menu_enhance = psc menu config enable_menu_enhance
+# if ($psc_enable_menu_enhance -eq 0) {
+# 	# 具体见：https://pscompletions.abgox.com/zh-cn/docs/tools/psfzf
+# 	# PSCompletions的外部补全由PSFzf处理
+# 	Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
+# 	# 260723 这个设置有问题 psc的补全会变成双引号的文本 暂时还是设成1
+# }
+# if ($psc_enable_menu_enhance -eq 1) {
+# 	# PSCompletions 和 PSFzf 自动协同，不清楚怎么个内部协同法，我暂时用0
+# 	Set-PsFzfOption -TabExpansion
+# }
 # 各类工具加载、初始化
 ## starship
 Invoke-Expression (& "starship.exe" init powershell --print-full-init | Out-String)
