@@ -1,7 +1,9 @@
 # starship init nu | save -f $"($nu.default-config-dir)/tools/starship.nu"
-source $"($nu.default-config-dir)/tools/starship.nu"
+if "ENABLE_STARSHIP" in $env {
+	source $"($nu.default-config-dir)/tools/starship.nu"
+}
 # carapace _carapace nushell | save -f $"($nu.default-config-dir)/tools/carapace.nu"
-source $"($nu.default-config-dir)/tools/carapace.nu"
+# source $"($nu.default-config-dir)/tools/carapace.nu"
 # fzf --nushell | save -f $"($nu.default-config-dir)/tools/fzf.nu"
 source $"($nu.default-config-dir)/tools/fzf.nu"
 # atuin init nu | save -f $"($nu.default-config-dir)/tools/atuin.nu"
