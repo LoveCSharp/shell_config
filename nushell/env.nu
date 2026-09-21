@@ -96,6 +96,11 @@ $env.PATH = $env.PATH | prepend $"($RUST_STR_LOC)/cargo/bin"
 #[net]
 #git-fetch-with-cli = true
 
+# vcs工具配置
+## git配置
+let GIT_STR_LOC = $"($DEV_STR_LOC)/vcs/git"
+$env.PATH = ($env.PATH | prepend $"($GIT_STR_LOC)/cmd")
+
 # cli工具配置
 let CLI_STR_LOC = $"($DEV_STR_LOC)/cli"
 ## zellij 配置

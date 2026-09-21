@@ -102,6 +102,11 @@ $env:path = "$RUST_STR_LOC\cargo\bin;$env:path"
 #[net]
 #git-fetch-with-cli = true
 
+# vcs工具配置
+## git
+$GIT_STR_LOC = "$DEV_STR_LOC\vcs\git"
+$env:path = "$GIT_STR_LOC\cmd;$env:path"
+
 # cli工具配置
 ## zellij 配置
 $ZELLIJ_STR_LOC = "$DEV_STR_LOC\cli\zellij"
