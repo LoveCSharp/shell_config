@@ -7,6 +7,7 @@ const NU_SCRIPTS_DIR = $"($DEV_STR_LOC)/cli/nu_scripts"
 # 开发工具可执行文件符号链接
 const SHIMS_STR_LOC = $"($DEV_STR_LOC)/shims"
 $env.PATH = ($env.PATH | prepend $SHIMS_STR_LOC)
+$env.PATH = ($env.PATH | prepend $"($SHIMS_STR_LOC)/microsoft-coreutils")
 
 # XDG 配置（很多工具支持，配置文件等不再占用C盘空间，配置放在其它工具运行初始化前）
 let XDG_STR_LOC = $"($DEV_STR_LOC)/XDG_STR_LOC"
